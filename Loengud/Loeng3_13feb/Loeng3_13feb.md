@@ -205,6 +205,42 @@ Protocols myst account for the following req.
     # Cancellation - Each wire in a pair of wires uses opposite polarity. One wire is negative. the other wire is positive. They are twisted together and magnetic fields effectively cancel each other and outside EMI/RFI
     # Variation in twists per foot in each wire - Each wire is twisted a different amount, which helps prevent crosstalk amongst the wires in the cable
 ![Alt text](Screenshots/Screenshot%202023-02-13%20113525.png)
+
+### UTP pins.
+#### Straight through cable.
+    A device                                 B Switch
+    wo tx - 1                              1 -- rx - wo
+    gr tx - 2                              2 -- rx - gr
+    wgr x - 3                              3 -- tx - wgr
+    bl tx - 4                              4 -- rx bl
+    wbl tx - 5                             5 -- rx wbl
+    or rx - 6                              6 -- rx or
+    wbr rx - 7                             7 -- tx wbr
+    br tx - 8                              8 -- rx br
+
+#### Rollover cable
+    A PC                                 B PC(router)
+    wgr tx - 1                             1 -- rx - wor
+    gr tx - 2                              2 -- rx - or
+    wor x - 3                              3 -- tx - gwgr
+    bl tx - 4                              4 -- rx - bl
+    wbl tx - 5                             5 -- rx - wbl
+    or rx - 6                              6 -- rx - gr
+    wbr rx - 7                             7 -- tx - wbr
+    br tx - 8                              8 -- rx - br
+
+#### Colors
+
+    w - white
+    gr - green
+    or - orange
+    bl - blue
+    br - brown
+
+
+
+
+![Alt text](../Loeng4_20feb/Screenshots/Screenshot%202023-02-20%20084650.png)
 ### Shielded Twisted Pair (STP)
 
     # Better noise protection than UTP
@@ -220,8 +256,177 @@ Protocols myst account for the following req.
     # Color-coded plastic insulation electrically isolates the wires from each other and identifies each pair
 
 
+### Fiber-Optic cabling
+
+#### Single mode fiber (smf)
+    # Very small core
+    # Uses expensive lasers
+    # Long-distance applications
+
+#### Multimode Fiber (mmf)
+    # Large core
+    # Uses less expensive LEDs
+    # LEDs transmit at different angles
+    # Up to 10gbps over 550 meters
+
+![Alt text](../Loeng4_20feb/Screenshots/Screenshot%202023-02-20%20092858.png)
+
+![Alt text](../Loeng4_20feb/Screenshots/Screenshot%202023-02-20%20093032.png)
+
+![Alt text](../Loeng4_20feb/Screenshots/Screenshot%202023-02-20%20093136.png)
+
+# Wireless media
+
+## Properties of Wireless Media
+#### it carries electromagnetic signlas representing binary digits using radio or microwave frequencies. This provides the greatest mobility option. Wireless connection number continue to increase.
+
+#### Some limitations
+    Coverage area
+    Intereference
+    Security
+    Shared medium
+
+### Types of Wireless media
+#### The IEEE and telecom. industry standards for wireless date communications cover both the data link and physical layers. In each of these standards, physical layer specifications dictate
+    # Data to radio signal encoding methods
+    # Frequency and power if transmission
+    # Signal reception and decoding req.
+    # Antenna design and construction
+
+### Wireless LAN
+#### Wireless Access Point (AP)
+    # Concenctrate wireless signlas from users and connect the existing copper-based network infrastructure
+#### Wireless NIC Adapters
+    # Provide wireless communications capability to network hosts
 
 
+
+# Module 5: Number Systems
+
+
+## Binary and IPv4 Addresses
+    # Binary numbering system consists of 1s and 0s, called bits
+    # Decimal numbering system consists of digits 0 through 9
+    # Hosts, servers, and network equipment using binary addressing to identify each other.
+    # Each address is made up of a string of 32 bitsm divided into four sections called octets.
+    # Each octet contains 8 bits(1 byte) seperated by a dot
+    # For ease of use by people, this dottet notation is converted to dotted decimal.
+![Alt text](../Loeng4_20feb/Screenshots/Screenshot%202023-02-20%20100750.png)
+
+## Hexadecimal and IPv6 Addresses (Cont.)
+    # IPv6 addresses are 128 bit in length. Every 4 bits is represented by a  single hexadecimal digit. That makes the IPv6 address a total of 32 hexadecimal values.
+    # The figure shows the preferred method of writing out and IPv6 address, with each X representing four hexadecimal values
+    # Each four hexadecimal character group is referred to as a hextet.
+
+## Purpose of the Data Link Layer 
+
+### Providing Access to Media
+    # Packets exchanged betweeen nodes may experience numerous data link layers and media transitions.
+    # At each hop along the path
+### Router performs four basic Layer 2 functions
+    # Accepts a frame from the network medium
+    # De-encapsulates the frame to expose the encapsulated packet
+    # Re-encapsulates the packet into a new frame
+    # Forwards the new frame on the medium of the next network segment
+
+### WAN topologies
+#### There are three common physical WAN topologies
+    # Point-to-point - the simplest and common WAN topology. Consists of a permanent link between two endpoints
+    # Hub and spoke - Similar to a star topology Where a central site interconnects branch sites through point-to-point links.
+    # Mesh - provides high availability bit requires every end system to be connected to every other end system.
+
+### Point-to-point WAN topology
+    # Physical point-to-point topologies directly connected 
+
+
+### LAN Topologies
+
+    # End devices on LANs are typically interconnected using a star or extended star topology
+    # Star and extended star topologies are easy to install, very scalable and easy to troubleshoot.
+
+#### Early ethernet and legacy Token Ring technologies provide two additional topologies:
+    # Bus - All end systems chained together and terminated on each end.
+    # Ring - Each end system is connected to its respective neighbours to form a ring.
+
+### Access Control Methods
+#### Contentation-based access
+##### All nodes operating in half-duplex, competing for use of the medium. Examples are
+    # Carrier sense multiple access with collision detection (CSMA/CD) as used on legacy bus-topology Ethernet and wire network.
+    # Carrier sense multiple access with collision avoidance (CSMA/CA) as used on Wireless LAN.
+
+#### Controlled access
+    # Deterministic access where each node has its own time on the medium
+    # Used on legacy networks such as Token Ring and ARCNET.
+
+
+#### CSMA/CA
+    # Used by IEEE 802.11 Wireless LANs
+    # Operates in half-duplex mode where only one device sends or receives at a time.
+    # Uses collision avoidance process to govern when a decice can send and what happens if multiple devices send at the same time.
+#### CSMA/CA collision avoidance process
+    # When trsnmitting, devices also include the time duration needed for the transmission.
+    # Other devices on the shared medium receive the time duration information and know how long the medium will be unabavailable.
+
+
+## The frame
+    # The data link protocol is responsible for NIC-to-NIC communications within the same network.
+    # Data is encapsulated by the datas link layer with a header and a trailer to form a frame
+#### A data link frame has 3 parts
+    # Header
+    # Data
+    # Trailer
+#### The fields of the header and trailer vary according to data link layer protocol.
+#### The amount of control information carried with in the frame varies according to access control information and logical topology. 
+
+### Layer 2 addresses 
+    # Also referres to as a physical address or MAC address or hardware address or burned-in address (BIA)
+    # Contained in the frame header.
+    # Used only for local delivery of a frame on the link.
+    # Updated by each device that forwards the frame.
+
+### LAN and WAN Frames
+#### The logical topology and physical Media dermine the data link protocol used
+    # 802.11 Wireless
+    # Point-toPoint (PPP)
+    # High-Level Data Link Control (HDLC)
+    # Frame-Relau
+    # Ethernet
+
+#### Each protocol performs media access control for specified logical topologies
+
+## Ethernet Frames
+
+### Ethernet Encapsulation
+    # Ethernet protocol was invented in 1972 by Bob Metcalfe.
+    # In 1980-1981, Ethernet I was introduces as a standard by DIX (DIX1)
+    # 1982 Ethernet II (DIX2)
+    # 1983 IEEE 802.3 Ethernet
+    # It operates in data link layer and the physical layer.
+
+### MAC Sublayer
+
+#### Media Access
+#### Legacy ethernet
+    # Bust Topology or hubs
+    # Shadred bandwidth
+    # Half-duplex medium.
+    # Uses a contention-based access method, carrier sense multiple access/collision detection (CSMA/CD)
+
+#### Ethernet LAns of today
+    # Uses switches
+    # Dedicated bandwidth
+    # Full-duplex
+    # Switches do not require access control through CSMA/CD
+
+
+### Ethernet Frame Fields
+    # Minimum Ethernet frame size is 64 bytes
+    # Maximum - 1518 bytes
+    # The 8-byte preamble and SFD (7 bytes preamble + 1 byte start frame delimiter) field is for sync. and not incl. when desc. the size of the frame.
+    # Less than 64 bytes - "collision fragment" or "runt frame" and is discarded
+    # Frames with more than 1518 - "jumbo", "data giant" 
+
+![Alt text](../Loeng4_20feb/Screenshots/Screenshot%202023-02-20%20113054.png)
 
 
 
